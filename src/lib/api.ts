@@ -12,6 +12,11 @@ const api = axios.create(options);
 async function fetchAPI(url : string, params : any){
     try {
         const response = await api.get(url, params);
+        
+        console.log(url);
+        console.log(params);
+
+        console.log(response);
         return response.data;
     } catch (error) {
         console.error('Error fetching data:', error);

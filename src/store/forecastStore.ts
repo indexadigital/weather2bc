@@ -19,7 +19,9 @@ export const useForecastStore = create<ForecastStore>((set) => ({
   },
   setForecast:  async (latitude, longitude) => {
     const forecastData = await getForecast(latitude, longitude);
-    localStorage.setItem('forecast', JSON.stringify(forecastData));
-    set({ forecast: forecastData });
+    if(forecastData) {
+      localStorage.setItem('forecast', JSON.stringify(forecastData));
+      set({ forecast: forecastData });
+    }
   }
 }));

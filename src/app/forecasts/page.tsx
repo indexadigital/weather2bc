@@ -1,5 +1,3 @@
-import styles from '../page.module.css'
-
 import { Metadata } from 'next'
  
 export const metadata: Metadata = {
@@ -8,10 +6,13 @@ export const metadata: Metadata = {
 
 export default function Forecasts() {
   return (
-    <main className={styles.main}>
-      <div className={styles.description}>
-        <h1>FORECASTS</h1>
+    <div className="bg-dark text-secondary px-4 py-5 text-center content">
+      <div className="py-5">
+        <h1 className="display-5 fw-bold text-white mb-5">Forecasts</h1>
+        <div className="col-lg-6 mx-auto">
+          List
+        </div>
       </div>
-    </main>
+    </div>
   )
 }

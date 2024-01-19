@@ -9,7 +9,6 @@ export const metadata: Metadata = {
 export default async function AddForecast() {
 
   return (
-    <main>
       <div className="bg-dark text-secondary px-4 py-5 text-center content">
         <div className="py-5">
           <h1 className="display-5 fw-bold text-white mb-5">Add Forecast</h1>
@@ -54,7 +53,6 @@ export default async function AddForecast() {
           </div>
         </div>
       </div>
-    </main>
   )
 
 }
