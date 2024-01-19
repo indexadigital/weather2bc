@@ -18,7 +18,7 @@ async function fetchAPI(url : string, params : any){
         throw error;
     }
 }
-export const getWeatherData = async (latitude: number, longitude: number) => {
+export const getForecast = async (latitude: number, longitude: number) => {
     const params = {
         "latitude": latitude,
         "longitude": longitude,
