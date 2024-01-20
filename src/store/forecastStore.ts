@@ -3,7 +3,8 @@ import { getForecast } from '@/lib/api';
 import { create } from 'zustand';
 
 import { LocalStorage } from "node-localstorage";
-global.localStorage = new LocalStorage('./scratch');
+if (typeof localStorage === "undefined" && typeof window === "undefined")
+  global.localStorage = new LocalStorage("./localstorage");
 
 export const useForecastStore = create<ForecastStore>((set) => ({
   latitude: localStorage.getItem('latitude') ? parseFloat(localStorage.getItem('latitude') as string) : null,

@@ -1,6 +1,6 @@
 import Link from 'next/link'
 import { Metadata } from 'next'
-import WeatherIcon from '@/components/icons'
+import WeatherIcon from '@/components/WeatherIcon'
  
 export const metadata: Metadata = {
   title: 'Weather2bc',

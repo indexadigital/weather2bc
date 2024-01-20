@@ -23,6 +23,6 @@ export async function forecastForm(formData: FormData){
     setLongitude(parsed.longitude);
     setForecast(parsed.latitude, parsed.longitude);
 
-    revalidatePath('/add-forecast');
+    revalidatePath('/forecasts');
     redirect('/forecasts');
 };

@@ -2,6 +2,7 @@ import type { Metadata } from 'next'
 import { Montserrat } from 'next/font/google'
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './globals.css'
+import GeolocationNavigator from '@/components/GeolocationNavigator';
 
 const font = Montserrat({ 
   weight: "500",
@@ -20,7 +21,10 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className={font.className}>{children}</body>
+      <body className={font.className}>
+        <GeolocationNavigator />
+        {children}
+      </body>
     </html>
   )
 }

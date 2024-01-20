@@ -1,12 +1,22 @@
-
 import { forecastForm } from '@/actions'
 import { Metadata } from 'next'
+import { ChangeEvent, useRef } from 'react';
  
 export const metadata: Metadata = {
   title: 'Add Forecast - Weather2bc',
 }
 
-export default async function AddForecast() {
+export default function AddForecast({
+  searchParams
+} : { searchParams: { latitude: string, longitude: string } } ) {
+
+  let latitude, longitude = '';
+  if (searchParams.latitude)
+    latitude = parseFloat(searchParams.latitude as string).toFixed(4)
+  if (searchParams.longitude)
+    longitude = parseFloat(searchParams.longitude as string).toFixed(4)
+
+  console.log(latitude, longitude);
 
   return (
       <div className="bg-dark text-secondary px-4 py-5 text-center content">
@@ -25,6 +35,7 @@ export default async function AddForecast() {
                   id="latitude" 
                   name="latitude" 
                   title="Send valid latitude"
+                  defaultValue={latitude}
                   required 
                 />
                 <label htmlFor="latitude">Latitude</label>
@@ -38,8 +49,9 @@ export default async function AddForecast() {
                   max="180" 
                   step="0.000001" 
                   id="longitude" 
-                  name="longitude" 
-                  title="Send valid longitude" 
+                  name="longitude"                  
+                  title="Send valid longitude"
+                  defaultValue={longitude}
                   required
                 />
                 <label htmlFor="longitude">Longitude</label>
