@@ -6,7 +6,7 @@ export default function GeolocationNavigator(){
 
     useEffect(() => {
         if( !localStorage.getItem('latitude') && !localStorage.getItem('longitude') ) {
-            if('geolocation' in navigator) {
+            if(navigator.geolocation) {
                 navigator.geolocation.getCurrentPosition(
                     (position) => {
                         const { latitude, longitude } = position.coords;    
@@ -15,7 +15,7 @@ export default function GeolocationNavigator(){
                         window.location.href = `/add-forecast?latitude=${latitude}&longitude=${longitude}`;
                     },
                     (error) => {
-                    console.error('Geolocation error:', error.message);
+                        console.error('Geolocation error:', error.message);
                     }
                 );
             }    
