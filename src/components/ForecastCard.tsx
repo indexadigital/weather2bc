@@ -22,17 +22,17 @@ export default function ForecastCard({ daily, day, index } : { daily : DailyFore
         
         (index === 0) ?
         (   <>
-                <div key={index} className="col col-12 card-forecast text-white">
+                <div className="col col-12 card-forecast text-white">
                     <WeatherIcon code={daily.weathercode[index]} alt='fogDay' size={150} />
                     <h3 className="pb-3">{day} (Today)</h3>
                     <Details daily={daily} index={index}/>
                 </div>
-                <div key={index+7} className="col col-12 text-white my-5">
+                <div className="col col-12 text-white my-5">
                     <h2>Next Days</h2>
                 </div>
             </>
         ):(
-            <div key={index} className="col col-4 col-xs-6 col-sm-6 col-md-6 text-white mb-4">
+            <div className="col col-4 col-xs-6 col-sm-6 col-md-6 text-white mb-4">
                 <div className="card-forecast">
                     <WeatherIcon code={daily.weathercode[index]} alt='fogDay' size={150} />
                     <h3 className="pb-3">{day}</h3>

@@ -22,7 +22,7 @@ export default function Forecasts() {
         <h1 className="display-5 fw-bold text-white mb-5">Forecasts</h1>
         <div className="row">
           {forecast.daily.time.map((time: any, index: number) => (  
-            <ForecastCard daily={forecast.daily} day={time} index={index} />
+            <ForecastCard key={index} daily={forecast.daily} day={time} index={index} />
           ))}
         </div>
       </div>
