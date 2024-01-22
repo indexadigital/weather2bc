@@ -11,7 +11,7 @@ export default function Home() {
     <main>
       <div className="bg-dark text-secondary px-4 py-5 text-center content">
         <div className="py-5">
-          <WeatherIcon code='06' alt='fogDay' size={150} />
+          <WeatherIcon code={6} alt='fogDay' size={150} />
           <h1 className="display-5 fw-bold text-white mb-4">              
               Weather Forecast - React.js
           </h1>

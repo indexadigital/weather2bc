@@ -8,6 +8,9 @@ body{
   background: rgb(28,25,82);
   background: linear-gradient(180deg, rgba(28,25,82,1) 20%, rgba(37,56,106,1) 62%, rgba(53,114,150,1) 100%, rgba(69,172,193,1) 100%);
 }
+.content.content-auto {
+  height: auto;
+}
 .text-bg-dark {
   color: #fff!important;
   background: #1d1952 !important;
@@ -24,4 +27,20 @@ body{
   color: #222 !important;
   border: 1px solid #0dcaf0 !important;
   background: #0dcaf0 !important;
+}
+.card-forecast {
+  background: linear-gradient(180deg, rgba(28,25,82,1) 20%, rgba(37,56,106,1) 62%, rgba(53,114,150,1) 100%, rgba(69,172,193,1) 100%);
+  padding: 15px;
+  border-radius: 15px;
+  opacity: 0.9;
+  border: 1px solid white;
+}
+.card-forecast h3 {
+  color: #fbbf24;
+}
+.card-forecast p {
+  font-weight: 300;
+}
+.card-forecast strong {
+  font-weight: 700;
 }

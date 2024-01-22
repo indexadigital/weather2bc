@@ -1,16 +1,29 @@
+import ForecastCard from '@/components/ForecastCard';
+import { useForecastStore } from '@/store/forecastStore';
 import { Metadata } from 'next'
+import Link from 'next/link';
  
 export const metadata: Metadata = {
   title: 'Forecasts - Weather2bc',
 }
 
 export default function Forecasts() {
+
+  const { forecast, latitude, longitude, setForecast } = useForecastStore.getState();
+
+  const handlerReload = () => {
+    if (latitude && longitude)
+      setForecast(latitude, longitude);
+  }
+
   return (
-    <div className="bg-dark text-secondary px-4 py-5 text-center content">
+    <div className="bg-dark text-secondary px-4 py-5 text-center content content-auto">
       <div className="py-5">
         <h1 className="display-5 fw-bold text-white mb-5">Forecasts</h1>
-        <div className="col-lg-6 mx-auto">
-          List
+        <div className="row">
+          {forecast.daily.time.map((time: any, index: number) => (  
+            <ForecastCard daily={forecast.daily} day={time} index={index} />
+          ))}
         </div>
       </div>
     </div>

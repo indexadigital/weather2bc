@@ -5,7 +5,7 @@ import './globals.css'
 import GeolocationNavigator from '@/components/GeolocationNavigator';
 
 const font = Montserrat({ 
-  weight: "500",
+  weight: ["300", "500", "700"],
   preload: false
 })
 
