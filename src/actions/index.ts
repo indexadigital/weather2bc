@@ -13,7 +13,6 @@ const schema = z.object({
 export async function forecastForm(formData: FormData){
 
     const { setLatitude, setLongitude, setForecast } = useForecastStore.getState();
-
     const parsed = schema.parse({
         latitude: parseFloat(formData.get("latitude") as string),
         longitude: parseFloat(formData.get("longitude") as string),
@@ -21,8 +20,8 @@ export async function forecastForm(formData: FormData){
 
     setLatitude(parsed.latitude);
     setLongitude(parsed.longitude);
-    setForecast(parsed.latitude, parsed.longitude);
-
-    revalidatePath('/forecasts');
-    redirect('/forecasts');
+    if(setForecast(parsed.latitude, parsed.longitude)){
+        revalidatePath('/forecasts');
+        redirect('/forecasts');
+    }    
 };

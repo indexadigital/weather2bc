@@ -1,15 +1,27 @@
 "use client";
-import { useEffect } from "react"
+import { useEffect, useState } from "react"
 
 export default function FormCoordinates({ forecastForm, latitude, longitude } : any ){
 
+    const [latitudeState, setLatitudeState] = useState(latitude)
+    const [longitudeState, setLongitudeState] = useState(longitude)
+
     useEffect(()=>{
+
+        let latitudeLocal = localStorage.getItem('latitude') as string
+        if(latitudeState && latitudeState != latitudeLocal)
+            latitudeLocal = latitudeState
+        setLatitudeState(latitudeLocal)
+
+        let longitudeLocal = localStorage.getItem('longitude') as string
+        if(longitudeState && longitudeState != longitudeLocal)
+            longitudeLocal = longitudeState
+        setLongitudeState(longitudeLocal)
+
         setTimeout(()=>{
             const inputs = document.querySelectorAll<HTMLInputElement>('input[type="number"]');            
             inputs.forEach((input) => {
                 input.defaultValue = input.defaultValue.replace(/,/g, '.');
-                console.log("defaultValue", input.defaultValue);
-                console.log("value", input.value);
             });
         }, 1000)   
     }, [])
@@ -27,7 +39,7 @@ export default function FormCoordinates({ forecastForm, latitude, longitude } : 
                 id="latitude" 
                 name="latitude" 
                 title="Send valid latitude"
-                defaultValue={latitude}
+                defaultValue={(latitudeState)?latitudeState:''}
                 required 
             />
             <label htmlFor="latitude">Latitude</label>
@@ -43,7 +55,7 @@ export default function FormCoordinates({ forecastForm, latitude, longitude } : 
                 id="longitude" 
                 name="longitude"                  
                 title="Send valid longitude"
-                defaultValue={longitude}
+                defaultValue={(longitudeState)?longitudeState:''}
                 required
             />
             <label htmlFor="longitude">Longitude</label>
